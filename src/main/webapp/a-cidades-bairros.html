@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/angular.min.js"></script>
+<script src="js/crud.js"></script>
+</head>
+<body ng-app="app" ng-controller="Filtros">
+
+	<div>
+		<select ng-if="estados" ng-model="filtros.idestado" ng-change="filtrarCidades()">
+			<option ng-repeat="estado in estados" value="{{estado.id}}">
+				{{estado.nome}} ({{estado.uf}})
+			</option>
+		</select>
+	</div>
+	
+	<div>
+		<select ng-if="cidades" ng-model="filtros.idcidade" ng-change="filtrarBairros()">
+			<option ng-repeat="cidade in cidades" value="{{cidade.id}}">
+				{{cidade.nome}}
+			</option>
+		</select>
+	</div>
+	
+	<div>
+		<select ng-if="bairros">
+			<option ng-repeat="bairro in bairros" value="{{bairro.id}}">
+				{{bairro.nome}}
+			</option>
+		</select>
+	</div>
+	
+</body>
+
+
+</html>

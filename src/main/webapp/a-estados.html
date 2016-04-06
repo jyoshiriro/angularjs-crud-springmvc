@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/angular.min.js"></script>
+<script src="js/crud.js"></script>
+</head>
+<body ng-app="app" >
+
+	<div ng-controller="ListarEstados">
+		<ul ng-if="estados">
+			<li ng-repeat="estado in estados">
+				{{estado.id}}. {{estado.nome}} ({{estado.uf}})
+			</li>
+		</ul>
+	</div>
+
+</body>
+
+
+</html>

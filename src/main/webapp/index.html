@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="frutas=[]">
+
+	<div>
+		<p>
+			Quem: <input type="text" ng-model="nome">
+		</p>
+		<span ng-if="nome">Olá, <b>{{nome}}</b></span>
+	</div>
+	
+	<p>
+		<input type="checkbox" ng-model="fazerConta" id="fazerConta"> <label for="fazerConta">Fazer contas</label>
+	</p>
+
+	<div ng-if="fazerConta">
+		<p>
+			N1: <input type="text" ng-model="n1"><br>
+			N2: <input type="text" ng-model="n2"><br>
+		</p>
+		<p ng-if="n1 && n2">
+			Soma: <b>{{(+n1)*1 + (+n2)*1}}</b><br>
+			Sub: <b>{{(+n1)*1 - (+n2)*1}}</b><br>
+			Mult: <b>{{(+n1) * (+n2)}}</b><br>
+			Div: <b>{{(+n1)*1 / (+n2)*1}}</b><br>
+		</p>
+	</div>
+	
+	<div>
+		<p>
+			<input type="text" ng-model="novafruta" placeholder="Nova fruta"><br>
+			<input type="button" ng-click="frutas.push(novafruta); novafruta='';" value="Adicionar Fruta"><br>
+		</p>
+		<ul ng-if="frutas">
+			<li ng-repeat="fruta in frutas">{{fruta}} 
+			<a href="javascript:;" style="color:red" ng-click="frutas.splice(frutas.indexOf(fruta),1)">[X]</a>
+			</li>
+		</ul>
+	</div>
+	
+</body>
+</html>
